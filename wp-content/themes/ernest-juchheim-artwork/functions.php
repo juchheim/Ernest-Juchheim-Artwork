@@ -190,9 +190,90 @@ add_action( 'wp_enqueue_scripts', 'ernest_juchheim_artwork_scripts' );
 add_action( 'woocommerce_before_cart', 'override_woocommerce_cart_template' );
 
 
-/*
+
 function ernest_juchheim_artwork_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 add_action( 'after_setup_theme', 'ernest_juchheim_artwork_add_woocommerce_support' );
-*/
+
+
+add_action('woocommerce_before_cart', 'override_woocommerce_cart_template');
+
+function override_woocommerce_cart_template() {
+    // Your custom code here
+}
+
+function custom_enqueue_scripts() {
+    // Enqueue the custom JS file
+    wp_enqueue_script('custom-cart', get_template_directory_uri() . '/js/custom-cart.js', array('jquery'), '1.0', true);
+
+    // Localize script to pass the AJAX URL and nonce
+    wp_localize_script('custom-cart', 'custom_cart_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('custom-cart-nonce')
+    ));
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_scripts');
+
+
+
+// Handle cart quantity update
+function custom_update_cart() {
+    check_ajax_referer('custom-cart-nonce', 'nonce');
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $quantity = intval($_POST['quantity']);
+
+    if ($quantity > 0) {
+        WC()->cart->set_quantity($cart_item_key, $quantity);
+        wc_clear_notices();
+        wp_send_json_success();
+    } else {
+        wp_send_json_error(array('message' => __('Quantity must be greater than zero.', 'woocommerce')));
+    }
+}
+add_action('wp_ajax_custom_update_cart', 'custom_update_cart');
+add_action('wp_ajax_nopriv_custom_update_cart', 'custom_update_cart');
+
+// Handle applying coupon
+function custom_apply_coupon() {
+    check_ajax_referer('custom-cart-nonce', 'nonce');
+
+    $coupon_code = sanitize_text_field($_POST['coupon_code']);
+    WC()->cart->apply_coupon($coupon_code);
+    wc_clear_notices();
+
+    wp_send_json_success();
+}
+add_action('wp_ajax_custom_apply_coupon', 'custom_apply_coupon');
+add_action('wp_ajax_nopriv_custom_apply_coupon', 'custom_apply_coupon');
+
+// Handle updating cart totals
+function custom_update_cart_totals() {
+    check_ajax_referer('custom-cart-nonce', 'nonce');
+
+    WC()->cart->calculate_totals();
+    wc_clear_notices();
+
+    wp_send_json_success();
+}
+add_action('wp_ajax_custom_update_cart_totals', 'custom_update_cart_totals');
+add_action('wp_ajax_nopriv_custom_update_cart_totals', 'custom_update_cart_totals');
+
+
+// Handle removing cart item
+function custom_remove_cart_item() {
+    check_ajax_referer('custom-cart-nonce', 'nonce');
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $removed = WC()->cart->remove_cart_item($cart_item_key);
+
+    if ($removed) {
+        wc_clear_notices();
+        wp_send_json_success();
+    } else {
+        wp_send_json_error(array('message' => __('Failed to remove item from cart.', 'woocommerce')));
+    }
+}
+add_action('wp_ajax_custom_remove_cart_item', 'custom_remove_cart_item');
+add_action('wp_ajax_nopriv_custom_remove_cart_item', 'custom_remove_cart_item');
