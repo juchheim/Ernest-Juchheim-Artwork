@@ -18,7 +18,7 @@
     
     <!-- Meta Tags for SEO -->
     <meta name="description" content="Discover fine art digital downloads for creating stunning prints. Expressive pet paintings with vibrant colors and dynamic brush strokes. Perfect for home decor and art lovers.">
-    <meta name="keywords" content="Fine Art, Digital Downloads, Art Prints, Pet Paintings, Expressive Color, Brush Strokes, Pet Portraits, Abstract Art, Colorful Art, Home Decor, Wall Art, Animal Art, Modern Art">
+    <meta name="keywords" content="Fine Art, Digital Downloads, Art Prints, Pet Paintings, Expressive Color, Brush Strokes, Pet Portraits, Abstract Art, Colorful Art, Home Decor, Wall Art, Animal Art, Modern Art, gouache">
     <meta name="author" content="Ernest Juchheim">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Ernest Juchheim Artwork - Fine Art Digital Downloads">
