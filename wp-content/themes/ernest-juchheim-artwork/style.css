@@ -1350,7 +1350,7 @@ a:active {
 .page-description {
 	background-color: #F2B100;
 	color: white;
-	padding:10px 0 10px 0;
+	padding:10px 20px 10px 20px;
 	margin:50px 0 50px;
 }
 
@@ -1390,3 +1390,5 @@ a:active {
 		padding-right:100px;
 	}
 }
+
+.product_meta { display: none; }
