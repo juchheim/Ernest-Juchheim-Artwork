@@ -1269,6 +1269,7 @@ a:active {
 	color: white;
 	padding:10px 20px 10px 20px;
 	margin:50px 0 50px;
+	border-radius: 10px;
 }
 
 .woocommerce-result-count { display: none;}
