@@ -1396,3 +1396,41 @@ a:active {
     }
 }
 
+
+/* Restyle WooCommerce Ordering Dropdown */
+.woocommerce-ordering {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.woocommerce-ordering .orderby {
+    background-color: #E94E1B; /* Red background */
+    color: #FFFFFF; /* White text color */
+    border: 2px solid #F2B100; /* Yellow border */
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    -webkit-appearance: none; /* Remove default dropdown arrow in Webkit browsers */
+    -moz-appearance: none; /* Remove default dropdown arrow in Firefox */
+    appearance: none; /* Remove default dropdown arrow in other browsers */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23FFFFFF" d="M2 0L0 2h4L2 0zM0 3l2 2 2-2H0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+}
+
+.woocommerce-ordering .orderby:hover,
+.woocommerce-ordering .orderby:focus {
+    background-color: #63B3E7; /* Light Blue background on hover */
+    border-color: #2A3A6E; /* Dark Blue border on hover */
+    color: #2A3A6E; /* Dark Blue text on hover */
+}
+
+/* Remove the extra square */
+.woocommerce-ordering select {
+    background-image: none !important;
+}
+
