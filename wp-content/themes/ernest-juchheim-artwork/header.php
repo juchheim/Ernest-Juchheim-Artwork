@@ -27,8 +27,7 @@
     <header id="masthead" class="site-header">
         <nav id="site-navigation" class="main-navigation">
             <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                <span class="menu-icon">&#9776;</span> <!-- Unicode for hamburger menu icon -->
-                <?php esc_html_e( 'Menu', 'ernest-juchheim-artwork' ); ?>
+                <span class="hamburger-icon">&#9776;</span> <!-- Unicode for hamburger menu icon -->
             </button>
             <?php
             wp_nav_menu(
@@ -60,3 +59,27 @@
             <?php endif; ?>
         </div><!-- .site-branding -->
     </header><!-- #masthead -->
+
+    <div id="content" class="site-content">
+
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Custom JS loaded');
+    var menuToggle = document.querySelector('.menu-toggle');
+    var menu = document.querySelector('.main-navigation');
+
+    menuToggle.addEventListener('click', function() {
+        console.log('Hamburger clicked');
+        menu.classList.toggle('toggled');
+        var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+        menuToggle.setAttribute('aria-expanded', !expanded);
+    });
+});
+
+
+
+</script>

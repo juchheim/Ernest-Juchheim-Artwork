@@ -645,101 +645,8 @@ textarea {
 # Components
 --------------------------------------------------------------*/
 
-/* Navigation
---------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
-}
 
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
-}
-
-.site-main .comment-navigation,
-.site-main
-.posts-navigation,
-.site-main
-.post-navigation {
-	margin: 0 0 1.5em;
-}
-
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-	display: flex;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	flex: 1 0 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	text-align: end;
-	flex: 1 0 50%;
-}
 
 /* Posts and pages
 --------------------------------------------- */
@@ -1111,31 +1018,6 @@ a:active {
     color: #2A3A6E; /* Dark Blue text on hover */
 }
 
-/* Responsive Navigation Menu */
-@media (max-width: 768px) {
-    .main-navigation ul {
-        display: none; /* Hide the navigation menu by default on small screens */
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .main-navigation ul.toggled {
-        display: flex; /* Show the navigation menu when toggled */
-    }
-
-    .menu-toggle {
-        display: block; /* Show the menu toggle button on small screens */
-    }
-
-    .main-navigation li {
-        margin: 0;
-    }
-
-    .main-navigation a {
-        padding: 15px;
-    }
-}
-
 /* Custom styles for product wrapper */
 /* Adjust the width and centering of the custom product wrapper */
 /* Custom styles for the WooCommerce cart page */
@@ -1427,3 +1309,89 @@ a:active {
 }
 
 .product_meta { display: none; }
+
+
+/* NAVIGATION */
+
+/* General styles for the header */
+.site-header {
+    position: relative;
+}
+
+.main-navigation {
+    background-color: #2A3A6E; /* Dark Blue background for the navigation */
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-navigation li {
+    margin: 0 15px;
+}
+
+.main-navigation a {
+    color: #FFFFFF; /* White text for navigation links */
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+    background-color: #63B3E7; /* Light Blue background on hover */
+    color: #2A3A6E; /* Dark Blue text on hover */
+}
+
+/* Mobile styles */
+.menu-toggle {
+    color: #FFFFFF; /* White menu toggle */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    display: none; /* Hide the toggle by default */
+    z-index: 1001; /* Ensure the toggle button is on top */
+}
+
+.hamburger-icon {
+    font-size: 24px;
+}
+
+/* Show the menu toggle button on small screens */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-navigation ul {
+        display: none !important; /* Hide the navigation menu by default on small screens */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 50px; /* Adjust this value if needed */
+        left: 0;
+        z-index: 1000; /* Ensure the menu is on top of other content */
+        background-color: #2A3A6E; /* Dark Blue background for the dropdown */
+    }
+
+    .main-navigation ul.toggled {
+        display: flex !important; /* Show the navigation menu when toggled */
+    }
+
+    .main-navigation li {
+        margin: 0;
+    }
+
+    .main-navigation a {
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
