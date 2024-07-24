@@ -1355,3 +1355,12 @@ a:active {
 }
 
 .woocommerce-result-count { display: none;}
+
+.products img {
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.products img:hover {
+    transform: scale(1.05); /* Zoom in on hover */
+}
