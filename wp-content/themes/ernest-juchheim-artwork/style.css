@@ -1006,6 +1006,41 @@ a:active {
     height: 250px; /* Match the height of the header background */
 }
 
+/* Ensure the navigation container is full width */
+.site-header .main-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #2A3A6E; /* Dark Blue background for the navigation */
+    padding: 0;
+}
+
+.site-header .main-navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.site-header .main-navigation li {
+    margin: 0 15px;
+}
+
+.site-header .main-navigation a {
+    color: #FFFFFF; /* White text for navigation links */
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.site-header .main-navigation a:hover,
+.site-header .main-navigation a:focus {
+    background-color: #63B3E7; /* Light Blue background on hover */
+    color: #2A3A6E; /* Dark Blue text on hover */
+}
+
+
 .site-branding {
     margin-top: 20px;
     position: relative;
