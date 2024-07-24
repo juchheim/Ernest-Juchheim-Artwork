@@ -896,7 +896,7 @@ a:active {
 }
 
 .header-background {
-    background-image: url('/wp-content/uploads/2024/07/paint_background.jpg');
+    background-image: url('/wp-content/uploads/2024/07/bg3.jpg');
     background-size: cover;
     background-position: center;
     height: 220px;
@@ -1434,3 +1434,23 @@ a:active {
     background-image: none !important;
 }
 
+/* Style for the Proceed to Checkout button */
+.woocommerce .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-page .wc-proceed-to-checkout a.checkout-button {
+    background-color: #63B3E7; /* Light Blue background */
+    color: #FFFFFF; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.wc-block-cart__submit-button {
+    background-color: #2A3A6E; /* Dark Blue background on hover */
+    color: #FFFFFF; /* Ensure text remains white on hover */
+}
