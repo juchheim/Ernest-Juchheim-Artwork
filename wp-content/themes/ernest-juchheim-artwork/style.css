@@ -1272,6 +1272,10 @@ a:active {
 	border-radius: 10px;
 }
 
+.page-description h3 {
+	font-size: 20px;
+}
+
 .woocommerce-result-count { display: none;}
 
 .products img {
@@ -1454,3 +1458,4 @@ a:active {
     background-color: #2A3A6E; /* Dark Blue background on hover */
     color: #FFFFFF; /* Ensure text remains white on hover */
 }
+
